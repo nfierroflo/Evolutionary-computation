@@ -1,0 +1,7 @@
+#core
+<start> ::= <expr>\eb_div_\eb<expr>
+<expr> ::= <expr><op><expr>|(<expr><op><expr>)|<preop>(-<expr>)|x[0]-<const>|<var>
+<op> ::= +|-|*|\eb_div_\eb
+<preop> ::= _exp_
+<var> ::= x[0]|<const>
+<const>::= 0.18 | 33.941 |18.975|0.666|40.076|13.416 
