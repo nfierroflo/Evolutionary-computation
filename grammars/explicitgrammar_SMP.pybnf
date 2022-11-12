@@ -1,13 +1,13 @@
 #core
 <start> ::=<sne>
 <sne> ::=<early>*(1-<sigmoid>)+<late>*<sigmoid>
-<early> ::=<const>*(1-<const>*(<var>-<t0>)/<const>)/<expo1>>)
-<late>  ::=<const>(1-<const>)*<expo2>/<expo1>)
+<early> ::=<const>*(1-<const>*(<var>-<t0>)/<const>)/<expo1>
+<late>  ::=<const>(1-<const>)*<expo2>/<expo1>
 
 #exponenciale
 <expo> ::= _exp_
-<expo1>  ::= 1+<expo>(-<var>+<t0>)/<const>)
-<expo2> ::= <expo>(-(<var>-(<const>+<t0>))/<const>)
+<expo1>  ::= 1+<expo>((-<var>+<t0>)/<const>)
+<expo2> ::= <expo>((-<var>+<const>+<t0>)/<const>)
 #<op> ::= +|-|*|\eb_div_\eb
 
 #sigmoide
@@ -16,7 +16,7 @@
 #variables y constantes
 <var> ::= x[0]|<const>
 <t> ::= x[0]
-<const>::= 0.18 | 33.941 |18.975|0.666|40.076|13.416 
+<const>::= 0.18|33.941|18.975|0.666|40.076|13.416 
 <const_libre> ::= <n><n>.<n><n>
 
 #t0 acotado
@@ -24,4 +24,4 @@
 <r> ::= 2|3|4|5
 
 #cifras
-<n> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<n> ::= 0|1|2|3|4|5|6|7|8|9
