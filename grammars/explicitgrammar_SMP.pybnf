@@ -1,14 +1,15 @@
 #core
 <start> ::=<sne>
-<sne> ::=<early>*(1-<sigmoid>)+<late>*<sigmoid>
-<early> ::=<const>*(1-<const>*(<var>-<t0>)/<const>)/<expo1>
-<late>  ::=<const>(1-<const>)*<expo2>/<expo1>
+<sne> ::=<early>*(1-<sigmoid>)+<sigmoid>*<late>
+<early> ::=<const>*(1-<const>*(<var>-<t0>)<div><const>)<div><expo1>
+<late>  ::=<const>*(1-<const>)*<expo2><div><expo1>
 
 #exponenciale
 <expo> ::= _exp_
-<expo1>  ::= 1+<expo>((-<var>+<t0>)/<const>)
-<expo2> ::= <expo>((-<var>+<const>+<t0>)/<const>)
+<expo1>  ::= 1+<expo>((<t0>-<var>)<div><const>)
+<expo2> ::= <expo>((<const>+<t0>-<var>)<div><const>)
 #<op> ::= +|-|*|\eb_div_\eb
+<div> ::= \eb_div_\eb
 
 #sigmoide
 <sigmoid> ::= _sig_(0.2*(<t>-(<const>+<t0>)))
