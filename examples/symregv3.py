@@ -1,6 +1,6 @@
 import random
 from numpy import cos, sin
-from sge.utilities.protected_math import _log_, _div_, _exp_, _inv_, _sqrt_, protdiv
+from sge.utilities.protected_math import _log_, _div_, _exp_, _inv_, _sqrt_,_sig_ ,protdiv
 import pandas as pd
 
 
@@ -84,7 +84,7 @@ class SymbolicRegression():
             #    l.append([xx,yy])
 
             #self.__train_set = l
-            df = pd.read_csv('dataset/Total/TrainTotal0.txt', sep=",",header=None)
+            df = pd.read_csv('dataset/Total/TrainTotalv3.txt', sep=",",header=None)
             l=df.to_numpy().tolist()
             self.__train_set =l
             self.training_set_size = len(self.__train_set)
@@ -93,7 +93,7 @@ class SymbolicRegression():
                 #function = eval(self.function)
                 #yy = map(function, xx)
                 print('Leyendo test de proyecto....')
-                df = pd.read_csv('dataset/Total/TrainTotal0.txt', sep=",",header=None)
+                df = pd.read_csv('dataset/Total/TrainTotalv3.txt', sep=",",header=None)
                 l=df.to_numpy().tolist()
                 self.__test_set = l
                 self.test_set_size = len(self.__test_set)
@@ -120,11 +120,13 @@ class SymbolicRegression():
 
     def get_error(self, individual, dataset):
         pred_error = 0
+        cuociente = 0
         maxData=0
         posData=0
         maxPred=0
         posPred=0;
         kij=1
+        size=0
 
         for fit_case in dataset:
             case_output = fit_case[-1]
@@ -132,7 +134,7 @@ class SymbolicRegression():
 
                 result = eval(individual, globals(), {"x": fit_case[:-1]})
                 pred_error += (case_output - result)**2
-
+                cuociente += result**2
                 if maxData<case_output:
                     maxData=case_output
                     posData=kij
@@ -145,9 +147,15 @@ class SymbolicRegression():
             except (OverflowError, ValueError) as e:
                 return self.__invalid_fitness
 
-            abcd=_sqrt_((maxData-maxPred)**2+(posData-posPred)**2)
-            eror_=_sqrt_(pred_error)+abcd/kij
-        return eror_
+            #abcd=_sqrt_((maxData-maxPred)**2+(posData-posPred)**2)
+            #eror_=_sqrt_(pred_error)/_sqrt_(max(cuociente,0.00001))
+            #eror_=_sqrt_(pred_error)
+            MSE=pred_error/kij
+            if cuociente==0:
+                cuociente=0.00000001
+            RRMSE= _sqrt_(MSE/cuociente)
+            maxdiff=_sqrt_(((maxData-maxPred)**2))
+        return 100*RRMSE+maxdiff
 
     def evaluate(self, individual):
         error = 0.0

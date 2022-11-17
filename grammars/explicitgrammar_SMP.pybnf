@@ -1,9 +1,9 @@
 #core
 <start> ::=<sne>
-#<sne> ::=(<early>)*(1-<sigmoid>)+<sigmoid>*(<late>)
-<sne> ::=(<constAB>*(1-<constAB>*(x[0]-<t0>)<div><const_libre>)<div>(<expo1>))*(1-_sig_(0.2*(x[0]-(<const_libre>+<t0>))))+(_sig_(0.2*(x[0]-(<const_libre>+<t0>))))*(<constAB>*(1-<constAB>)*<expo2><div>(<expo1>))
-#<early> ::=<constAB>*(1-<constAB>*(<var>-<t0>)<div><const_libre>)<div>(<expo1>)
-#<late>  ::=<constAB>*(1-<constAB>)*<expo2><div>(<expo1>)
+<sne> ::=(<early>)*(1-<sigmoid>)+<late>*<sigmoid>
+#<sne> ::=(<constAB>*(1-<constAB>*(x[0]-<t0>)<div><const_libre>)<div>(<expo1>))*(1-_sig_(0.2*(x[0]-(<const_libre>+<t0>))))+(_sig_(0.2*(x[0]-(<const_libre>+<t0>))))*(<constAB>*(1-<constAB>)*<expo2><div>(<expo1>))
+<early> ::=<constAB>*(1-<constAB>*(<var>-<t0>)<div><const_libre>)<div>(<expo1>)
+<late>  ::=<constAB>*(1-<constAB>)*<expo2><div>(<expo1>)
 
 #exponenciale
 <expo> ::= _exp_
@@ -24,7 +24,7 @@
 
 #t0 acotado
 <t0> ::= <r><n>.<n>
-<r> ::= 2|3|4|5
+<r> ::= 3
 
 #cifras
 <n> ::= 0|1|2|3|4|5|6|7|8|9

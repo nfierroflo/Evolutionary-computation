@@ -1,0 +1,37 @@
+#core
+<start> ::=<sne>
+<sne>   ::=(<A><div>(<expo1>)*(<early>*(1-<g(t)>)+<late>*<g(t)>)
+
+<early> ::=(1-<beta>*(<t>-<t0>)<div><gamma>)
+<late>  ::=(1-<beta>)*<expo2>
+
+#exponenciale
+<expo> ::= _exp_
+<expo1>  ::= 1+<expo>((<t0>-<t>)<div><trise>)
+<expo2> ::= <expo>((<gamma>+<t0>-<t>)<div><tfall>)
+#<op> ::= +|-|*|\eb_div_\eb
+<div> ::= \eb_div_\eb
+
+#g(t)
+<g(t)> ::= _sig_(0.2*(<t>-(<gamma>+<t0>)))
+
+#variables y constantes
+<var> ::= x[0]|x[0]|x[0]|<const_libre>
+<t> ::= x[0]
+<gamma>::=18.975
+<tfall>::=40.076
+<trise>::=13.416
+<const_libre> ::= <n><n>.<n><n>
+
+<A> ::= 0.18
+<beta> ::= 0.666
+<constAB> ::= 0.<n><n><n>
+
+#t0 acotado
+<t0> ::= 33.941
+#<t0> ::= <r><n>.<n>
+<r> ::= 3
+
+#cifras
+<n> ::= 0|1|2|3|4|5|6|7|8|9
+
