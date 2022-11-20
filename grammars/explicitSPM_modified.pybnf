@@ -1,34 +1,35 @@
 #core
 <start> ::=<sne>
-<sne>   ::=<A>*(<early>*(1-<sigmoid>)+<late>*<sigmoid>)<div>(<expo1>)
-
-<early> ::=(1-<beta>*(<t>-<t0>)<div><gamma>)
-<late>  ::=(1-<beta>)*<expo2>
+<sne>   ::=<A>*(<early>*(1-<g(t)>)+<late>*<g(t)>)<div>(<expo1>)
+<expr>  ::= <expr><op><expr>|(<expr><op><expr>)|<expo>(<expr>)|<t><op><expr>|<constante>|<t>
+<early> ::=(1-<constante>*(<t>-<t0>)<div><gamma>)
+<late>  ::=(1-<constante>)*<expo2>
 
 #exponenciale
 <expo> ::= _exp_
-<expo1>  ::= 1+<expo>((<t0>-<t>)<div><trise>)
-<expo2> ::= <expo>((<gamma>+<t0>-<t>)<div><tfall>)
-#<op> ::= +|-|*|\eb_div_\eb
+<expo1>  ::= 1+<expo>((<t0>-<t>)<op><constante>)
+<expo2> ::= <expo>((<gamma>+<t0>-<t>)<op><constante>)
+<op> ::= +|-|*|\eb_div_\eb
 <div> ::= \eb_div_\eb
 
-#sigmoide
-<sigmoid> ::= _sig_(0.2*(<t>-(<gamma>+<t0>)))
+#g(t)
+<g(t)> ::= _sig_(0.2*(<t>-(<constante>+<t0>)))
 
 #variables y constantes
-<var> ::= x[0]|x[0]|x[0]|<const_libre>
 <t> ::= x[0]
-<gamma>::=<const_libre>
-<tfall>::=<const_libre>
-<trise>::=<const_libre>
-<const_libre> ::= <n><n>.<n><n>
-
-<A> ::= <constAB> 
-<beta> ::= <constAB> 
+<gamma>::=<constante>
+<tfall>::=<constante>
+<trise>::=<constante>
+#<constante> ::= <n><n>.<n><n>
+#<constante> ::= A|t0|gamma|beta|trise|tfall
+<constante> ::= cte[0]|cte[1]|cte[2]|cte[3]|cte[4]|cte[5]
+<A> ::= <constante>
+<beta> ::= <constante>
 <constAB> ::= 0.<n><n><n>
 
 #t0 acotado
-<t0> ::= 33.941
+#<t0> ::= 33.941
+<t0> ::= <constante>
 #<t0> ::= <r><n>.<n>
 <r> ::= 3
 

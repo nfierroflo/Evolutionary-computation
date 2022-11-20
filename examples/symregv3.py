@@ -131,7 +131,7 @@ class SymbolicRegression():
         for fit_case in dataset:
             case_output = fit_case[-1]
             try:
-
+                #print(individual[0]) 
                 result = eval(individual, globals(), {"x": fit_case[:-1]})
                 pred_error += (case_output - result)**2
                 cuociente += result**2
@@ -155,7 +155,7 @@ class SymbolicRegression():
                 cuociente=0.00000001
             RRMSE= _sqrt_(MSE/cuociente)
             maxdiff=_sqrt_(((maxData-maxPred)**2))
-        return 100*RRMSE+maxdiff
+        return 100*RRMSE
 
     def evaluate(self, individual):
         error = 0.0
