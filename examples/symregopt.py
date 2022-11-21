@@ -172,7 +172,7 @@ class SymbolicRegression():
             #eror_=_sqrt_(pred_error)/_sqrt_(max(cuociente,0.00001))
             #eror_=_sqrt_(pred_error)
             
-        #_,new_output,RMSE=optIndividual(x_array,y_array,individual,self.constants)
+        #self.constants,new_output,RMSE=optIndividual(x_array,y_array,individual,self.constants)
         #RMSE=root_mean_squared_error(y_array, new_output)
         RMSE=root_mean_squared_error(y_array, result_array)
         return 100*RMSE

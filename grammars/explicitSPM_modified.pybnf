@@ -1,19 +1,19 @@
 #core
 <start> ::=<sne>
-<sne>   ::=<A>*(<early>*(1-<g(t)>)+<late>*<g(t)>)<div>(<expo1>)
-<expr>  ::= <expr><op><expr>|(<expr><op><expr>)|<expo>(<expr>)|<t><op><expr>|<constante>|<t>
-<early> ::=(1-<constante>*(<t>-<t0>)<div><gamma>)
-<late>  ::=(1-<constante>)*<expo2>
+<sne>   ::=(<constante><div>(1+<expo1>))*(<early>*(1-<g(t)>)+<late>*<g(t)>)
+<early> ::=(1-<beta>*(<t>-<t0>)<div><gamma>)
+<late>  ::=(1-<beta>)*<expo2>
 
-#exponenciale
+
+#exponencial
 <expo> ::= _exp_
-<expo1>  ::= 1+<expo>((<t0>-<t>)<op><constante>)
-<expo2> ::= <expo>((<gamma>+<t0>-<t>)<op><constante>)
+<expo1>  ::= 1+<expo>((<t0>-<t>)<div><constante>)
+<expo2> ::= <expo>((<gamma>+<t0>-<t>)<div><constante>)
 <op> ::= +|-|*|\eb_div_\eb
 <div> ::= \eb_div_\eb
 
 #g(t)
-<g(t)> ::= _sig_(0.2*(<t>-(<constante>+<t0>)))
+<g(t)> ::= _sig_(0.2*(<t>-(<gamma>+<t0>)))
 
 #variables y constantes
 <t> ::= x[0]

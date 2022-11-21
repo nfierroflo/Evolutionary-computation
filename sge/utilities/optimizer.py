@@ -23,9 +23,10 @@ def optIndividual(x_array,y_array,individual,old_c):
     funobj= lambda cte :root_mean_squared_error(y_array,fun(cte))
     res = minimize(funobj,old_c, method='SLSQP',jac=False)
 
-    new_c = res.x
+    new_c = res['x']
 
     new_output = fun(new_c)
 
     RMSE=res.fun
     return new_c,new_output,RMSE
+
