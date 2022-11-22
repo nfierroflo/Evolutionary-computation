@@ -2,6 +2,10 @@ import random
 from numpy import cos, sin
 from sge.utilities.protected_math import _log_, _div_, _exp_, _inv_, _sqrt_,_sig_ ,protdiv
 import pandas as pd
+import numpy as np
+from sge.utilities.evaluations import *
+from sge.utilities.optimizer import *
+from scipy.optimize import minimize
 
 
 def drange(start, stop, step):
@@ -127,35 +131,30 @@ class SymbolicRegression():
         posPred=0;
         kij=1
         size=0
+        result_array=np.array([])
+        x_array=np.array([])
+        y_array=np.array([])
+
+        g1=lambda t: str_to_value(t,individual)
 
         for fit_case in dataset:
             case_output = fit_case[-1]
             try:
                 #print(individual[0]) 
-                result = eval(individual, globals(), {"x": fit_case[:-1]})
-                pred_error += (case_output - result)**2
-                cuociente += result**2
-                if maxData<case_output:
-                    maxData=case_output
-                    posData=kij
-                if maxPred<result:
-                    maxPred=result
-                    posPred=kij
+                result = g1(x_array)
+                x_array=np.append(x_array,fit_case[:-1])
+                y_array=np.append(y_array,fit_case[-1])
+                result_array=np.append(result_array,result)
 
-                kij+=1
 
             except (OverflowError, ValueError) as e:
                 return self.__invalid_fitness
 
-            #abcd=_sqrt_((maxData-maxPred)**2+(posData-posPred)**2)
-            #eror_=_sqrt_(pred_error)/_sqrt_(max(cuociente,0.00001))
-            #eror_=_sqrt_(pred_error)
-            MSE=pred_error/kij
-            if cuociente==0:
-                cuociente=0.00000001
-            RRMSE= _sqrt_(MSE/cuociente)
-            maxdiff=_sqrt_(((maxData-maxPred)**2))
-        return 100*RRMSE
+        g1=lambda t: str_to_value(t,individual)
+        #g1=lambda t: eval(individual,globals(),{"x":t})
+        output=g1(x_array)
+        RMSE=root_mean_squared_error(y_array, output)
+        return RMSE
 
     def evaluate(self, individual):
         error = 0.0

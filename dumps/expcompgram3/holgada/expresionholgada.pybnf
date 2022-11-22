@@ -1,0 +1,33 @@
+#core
+<start> ::=(1-<g(t)>)*<expr> + <g(t)>*<expr>
+<expr>  ::=<expr><op><expr>|(<expr><op><expr>)|<expr><div>(<expo1>+1)|<expo2>|1
+#<expr>  ::=<early>|<late>
+#<sne> ::=(<early>)*(1-<g(t)>)+<late>*<g(t)>
+<early> ::=<A>*(1-<beta>*(<t>-<t0>)<div><gamma>)<div>(<expo1>)
+<late>  ::=<A>*(1-<beta>)*<expo2><div>(<expo1>)
+
+#exponencial
+<expo> ::= _exp_
+<expo1>  ::= 1+<expo>((<t0>-<t>)<div><trise>)
+<expo2> ::= <expo>((<gamma>+<t0>-<t>)<div><tfall>)
+
+<div> ::= \eb_div_\eb
+<op> ::= +|-|*
+
+<arg> ::=-1*(<t>-<t0>)<div><trise>|-1*(<t>-(<t0>+<gamma>))<div><tfall>
+
+#g(t)
+<g(t)> ::= _sig_(0.2*(<t>-(<gamma>+<t0>)))
+
+#variables y constantes
+<t> ::= x[0]
+
+<cte> ::= <A>|<beta>|<gamma>|<trise>|<tfall>|<t0>
+<A> ::=0.18
+<beta> ::=0.666
+<gamma> ::=18.975
+<trise> ::=13.416
+<tfall> ::=40.076
+<t0> ::= 33.941
+
+

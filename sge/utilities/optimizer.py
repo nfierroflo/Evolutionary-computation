@@ -17,6 +17,14 @@ def str_to_expr(text):
     text = text.replace("x[0]", "t")
     return text
 
+def str_to_value(value,text):
+    text = text.replace("|_div_|", "/")
+    text = text.replace("_exp_", "np.exp")
+    text = text.replace("_sig_", "sigmoid")
+    text = text.replace("x[0]", "t")
+    t = value
+    return eval(text)
+    
 def optIndividual(x_array,y_array,individual,old_c):
     t=x_array
     fun = lambda cte : eval(str_to_expr(individual),{"cte":cte,"t":x_array,"sigmoid":sigmoid,"np":np})

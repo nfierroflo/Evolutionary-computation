@@ -1,0 +1,26 @@
+#core
+<start> ::=<sne>
+<sne> ::=(<early>)*(1-<sigmoid>)+<late>*<sigmoid>
+<early> ::=<A>*(1-<beta>*(<t>-<t0>)<div><gamma>)<div>(<expo1>)
+<late>  ::=<A>*(1-<beta>)*<expo2><div>(<expo1>)
+
+#exponencial
+<expo> ::= _exp_
+<expo1>  ::= 1+<expo>((<t0>-<t>)<div><trise>)
+<expo2> ::= <expo>((<gamma>+<t0>-<t>)<div><tfall>)
+<div> ::= \eb_div_\eb
+
+#sigmoide
+<sigmoid> ::= _sig_(0.2*(<t>-(<gamma>+<t0>)))
+
+#variables y constantes
+<t> ::= x[0]
+
+<A> ::=0.18
+<beta> ::=0.666
+<gamma> ::=18.975
+<trise> ::=13.416
+<tfall> ::=40.076
+<t0> ::= 33.941
+
+

@@ -1,11 +1,10 @@
 #core
 <start> ::=<sne>
 <sne> ::=(<early>)*(1-<sigmoid>)+<late>*<sigmoid>
-#<sne> ::=(<constAB>*(1-<constAB>*(x[0]-<t0>)<div><const_libre>)<div>(<expo1>))*(1-_sig_(0.2*(x[0]-(<const_libre>+<t0>))))+(_sig_(0.2*(x[0]-(<const_libre>+<t0>))))*(<constAB>*(1-<constAB>)*<expo2><div>(<expo1>))
 <early> ::=<constAB>*(1-<constAB>*(<var>-<t0>)<div><const_libre>)<div>(<expo1>)
 <late>  ::=<constAB>*(1-<constAB>)*<expo2><div>(<expo1>)
 
-#exponenciale
+#exponencial
 <expo> ::= _exp_
 <expo1>  ::= 1+<expo>((<t0>-<var>)<div><const_libre>)
 <expo2> ::= <expo>((<const_libre>+<t0>-<var>)<div><const_libre>)
@@ -18,9 +17,11 @@
 #variables y constantes
 <var> ::= x[0]|x[0]|x[0]|<const_libre>
 <t> ::= x[0]
-<const>::= 0.18|33.941|18.975|0.666|40.076|13.416
+#<const>::= 0.18|33.941|18.975|0.666|40.076|13.416
 <const_libre> ::= <n><n>.<n><n>
+#<const_libre> ::= <const>
 <constAB> ::= 0.<n><n><n>
+#<constAB> ::= <const>
 
 #t0 acotado
 <t0> ::= <r><n>.<n>
