@@ -1,0 +1,11 @@
+<start> ::= <cteCero>+(<expr>)
+<expr> ::= (<expr>)<op>(<expr>)|(<pre_op>)|<const_libre>|<var>
+<op> ::= +|-|*|\eb_div_\eb
+<pre_op> ::= _exp_(<expr>)|_exp_((x[0]-<const_libre>)\eb_div_\eb<const_libre>) | _sig_(<cteCero>*(x[0]-<const_libre>))
+<var> ::= x[0]
+
+# constanes
+<const_libre> ::=  <n><n>.<n><n>
+<cteCero> ::= 0.<n><n><n>
+
+<n> ::= 0|1|2|3|4|5|6|7|8|9
