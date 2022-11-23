@@ -153,7 +153,7 @@ class SymbolicRegression():
         g1=lambda t: str_to_value(t,individual)
         #g1=lambda t: eval(individual,globals(),{"x":t})
         output=g1(x_array)
-        RMSE=log_cosh(y_array, output)
+        RMSE=root_mean_squared_error(y_array, output)
         return RMSE
 
     def evaluate(self, individual):
