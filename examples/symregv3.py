@@ -84,7 +84,7 @@ class SymbolicRegression():
             #    l.append([xx,yy])
 
             #self.__train_set = l
-            df = pd.read_csv('dataset/Total/TrainTotalv4.txt', sep=",",header=None)
+            df = pd.read_csv('dataset/Total/TrainTotalv3.txt', sep=",",header=None)
             l=df.to_numpy().tolist()
             self.__train_set =l
             self.training_set_size = len(self.__train_set)
@@ -93,7 +93,7 @@ class SymbolicRegression():
                 #function = eval(self.function)
                 #yy = map(function, xx)
                 print('Leyendo test de proyecto....')
-                df = pd.read_csv('dataset/Total/TrainTotalv4.txt', sep=",",header=None)
+                df = pd.read_csv('dataset/Total/TrainTotalv3.txt', sep=",",header=None)
                 l=df.to_numpy().tolist()
                 self.__test_set = l
                 self.test_set_size = len(self.__test_set)
