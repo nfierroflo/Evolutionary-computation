@@ -63,8 +63,21 @@ os.system("python -m examples.symregv3 --experiment_name dumps/expcompgram3/RRMS
 os.system("python -m examples.symregv3 --experiment_name dumps/expcompgram3/directo --seed 791025 --parameters parameters/standardv3.yml --run 1")
 os.system("python -m examples.symregv3 --experiment_name dumps/expcompgram3/directo --seed 791035 --parameters parameters/standardv3.yml --run 2")
 os.system("python -m examples.symregv3 --experiment_name dumps/expcompgram3/directo --seed 791045 --parameters parameters/standardv3.yml --run 3")
-'''
+
 
 os.system("python -m examples.symregv3 --experiment_name dumps/expcompgram3/eval --seed 791025 --parameters parameters/standardv3.yml --run 1")
 os.system("python -m examples.symregv3 --experiment_name dumps/expcompgram3/eval --seed 791035 --parameters parameters/standardv3.yml --run 2")
 os.system("python -m examples.symregv3 --experiment_name dumps/expcompgram3/eval --seed 791045 --parameters parameters/standardv3.yml --run 3")
+
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar --seed 791025 --parameters parameters/standardv3.yml --run 1")
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar  --seed 791035 --parameters parameters/standardv3.yml --run 2")
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar  --seed 791055 --parameters parameters/standardv3.yml --run 3")
+
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/logcosh  --seed 791025 --parameters parameters/standardv3.yml --run 1")
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/logcosh  --seed 791035 --parameters parameters/standardv3.yml --run 2")
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/logcosh  --seed 791055 --parameters parameters/standardv3.yml --run 3")
+
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/huber_loss  --seed 791025 --parameters parameters/standardv3.yml --run 1")
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/log_cosh  --seed 791135 --parameters parameters/standardv3.yml --run 2")
+os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/log_cosh --seed 791155 --parameters parameters/standardv3.yml --run 3")
+'''

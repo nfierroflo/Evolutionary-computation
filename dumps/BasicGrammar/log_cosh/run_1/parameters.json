@@ -1,0 +1,1 @@
+{"parameters": "parameters/standardv3.yml", "popsize": 500, "generations": 1000, "elitism": 50, "seed": 791025.0, "prob_crossover": 0.9, "prob_mutation": 0.3, "tsize": 5, "grammar": "grammars/BasicGrammar.pybnf", "experiment_name": "dumps/BasicGrammar/logcosh", "run": 1, "include_genotype": true, "save_step": 25, "verbose": true, "min_tree_depth": 1, "max_tree_depth": 20}
