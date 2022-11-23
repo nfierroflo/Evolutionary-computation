@@ -78,20 +78,13 @@ class SymbolicRegression():
                 self.test_set_size = len(self.__test_set)
         elif self.function in ["quarticpolynomial"]:
             function = eval(self.function)
-            #l = []
-            #for xx in drange(-1,1.1,0.1):
-            #    yy = quarticpolynomial(xx)
-            #    l.append([xx,yy])
-
-            #self.__train_set = l
+            
             df = pd.read_csv('dataset/Total/TrainTotalv3.txt', sep=",",header=None)
             l=df.to_numpy().tolist()
             self.__train_set =l
             self.training_set_size = len(self.__train_set)
             if self.has_test_set:
-                #xx = list(drange(-1,1.1,0.1))
-                #function = eval(self.function)
-                #yy = map(function, xx)
+
                 print('Leyendo test de proyecto....')
                 df = pd.read_csv('dataset/Total/TrainTotalv3.txt', sep=",",header=None)
                 l=df.to_numpy().tolist()
