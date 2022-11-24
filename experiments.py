@@ -80,8 +80,28 @@ os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/logc
 os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/huber_loss  --seed 791025 --parameters parameters/standardv3.yml --run 1")
 os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/log_cosh  --seed 791135 --parameters parameters/standardv3.yml --run 2")
 os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar/log_cosh --seed 791155 --parameters parameters/standardv3.yml --run 3")
-'''
+
 
 os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar-t0/RMSE  --seed 791025 --parameters parameters/standardv3.yml --run 1")
 os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar-t0/RMSE  --seed 791135 --parameters parameters/standardv3.yml --run 2")
 os.system("python -m examples.symregv3 --experiment_name dumps/BasicGrammar-t0/RMSE  --seed 791155 --parameters parameters/standardv3.yml --run 3")
+
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_33888_green/BasicGrammar   --seed 791025 --parameters parameters/standardv3.yml --run 1")
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_33888_green/BasicGrammar   --seed 791140 --parameters parameters/standardv3.yml --run 2")
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_33888_green/BasicGrammar   --seed 791155 --parameters parameters/standardv3.yml --run 3")
+
+
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_33888_red/BasicGrammar   --seed 791025 --parameters parameters/standardv3.yml --run 1")
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_33888_red/BasicGrammar   --seed 791140 --parameters parameters/standardv3.yml --run 2")
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_33888_red/BasicGrammar   --seed 791155 --parameters parameters/standardv3.yml --run 3")
+
+
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_352_green/BasicGrammar   --seed 791025 --parameters parameters/standardv3.yml --run 1")
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_352_green/BasicGrammar   --seed 791140 --parameters parameters/standardv3.yml --run 2")
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_352_green/BasicGrammar   --seed 791155 --parameters parameters/standardv3.yml --run 3")
+
+'''
+
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_352_red/BasicGrammar   --seed 791025 --parameters parameters/standardv3.yml --run 1")
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_352_red/BasicGrammar   --seed 791140 --parameters parameters/standardv3.yml --run 2")
+os.system("python -m examples.symregv3 --experiment_name dumps/Synthetic/alerceZTFv7.1_4spm-mcmc_352_red/BasicGrammar   --seed 791155 --parameters parameters/standardv3.yml --run 3")

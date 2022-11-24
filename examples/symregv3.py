@@ -88,7 +88,7 @@ class SymbolicRegression():
             #    l.append([xx,yy])
 
             #self.__train_set = l
-            df = pd.read_csv('dataset/Total/TrainTotalv3.txt', sep=",",header=None)
+            df = pd.read_csv('dataset/Synthetic/alerceZTFv7.1_4spm-mcmc_352_red.txt', sep=",",header=None)
             l=df.to_numpy().tolist()
             self.__train_set =l
             self.training_set_size = len(self.__train_set)
@@ -97,7 +97,7 @@ class SymbolicRegression():
                 #function = eval(self.function)
                 #yy = map(function, xx)
                 print('Leyendo test de proyecto....')
-                df = pd.read_csv('dataset/Total/TrainTotalv3.txt', sep=",",header=None)
+                df = pd.read_csv('dataset/Synthetic/alerceZTFv7.1_4spm-mcmc_352_red.txt', sep=",",header=None)
                 l=df.to_numpy().tolist()
                 self.__test_set = l
                 self.test_set_size = len(self.__test_set)
@@ -140,20 +140,22 @@ class SymbolicRegression():
         for fit_case in dataset:
             case_output = fit_case[-1]
             try:
-                #print(individual[0]) 
                 result = g1(x_array)
+                result2 = eval(individual, globals(), {"x": fit_case[:-1]})
                 x_array=np.append(x_array,fit_case[:-1])
                 y_array=np.append(y_array,fit_case[-1])
-                result_array=np.append(result_array,result)
+                result_array=np.append(result_array,result2)
 
 
             except (OverflowError, ValueError) as e:
                 return self.__invalid_fitness
 
         g1=lambda t: str_to_value(t,individual)
-        #g1=lambda t: eval(individual,globals(),{"x":t})
+        g1=lambda t: eval(individual,globals(),{"x":t})
         output=g1(x_array)
-        RMSE=root_mean_squared_error(y_array, output)
+
+        #RMSE=root_mean_squared_error(y_array, output)
+        RMSE=root_mean_squared_error(y_array, result_array)
         return RMSE
 
     def evaluate(self, individual):

@@ -1,9 +1,9 @@
 <start> ::= <cteCero>+(<expr>)
-<expr> ::= (<expr>)<op>(<expr>)|(<pre_op>)|<const_libre>|<var>|(<var>-<t0>)
+<expr> ::= (<expr>)<op>(<expr>)|(<pre_op>)|<const_libre>|<var>
 <op> ::= +|-|*|\eb_div_\eb
 <pre_op> ::= _exp_(<expr>)|_exp_((x[0]-<const_libre>)\eb_div_\eb<const_libre>)|_exp_((x[0]-<const_libre>)\eb_div_\eb<const_libre>) | _sig_(<cteCero>*(x[0]-<const_libre>))
 <var> ::= x[0]
-<t0> ::= 33.941
+#<t0> ::= 33.941
 # constanes
 <const_libre> ::=  <n><n>.<n><n>
 <cteCero> ::= 0.<n><n><n>
